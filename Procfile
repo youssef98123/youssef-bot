@@ -1,0 +1,1 @@
+workey: node bot.js
