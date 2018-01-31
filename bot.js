@@ -5,7 +5,7 @@ const jimp = require('jimp')
 const moment = require('moment')
 const client = new Discord.Client();
 
-const prefix = 'البريفكس';
+const prefix = '*';
 
 client.on('message', message => {
     
