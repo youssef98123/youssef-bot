@@ -2,18 +2,7 @@ const Discord = require("discord.js");
   const client = new Discord.Client();
     const client = "NDM5MTM0ODIyMjcxNTQ5NDUw.DcPOkw.xoZyy6be4uFBd1QzVZLOJGy8es4"
 
-  client.on('message', message => {
-    if (message.content.split(' ')[0] == '***')
-       message.guild.members.forEach( member => {
-         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
 
-
-           member.send( `${member} ! ` + "**" + message.guild.name + " : ** " + message.content.substr(3));
-                                                      message.delete();
-            
-                                                    });
-            
-                                                  });
    client.on("message", message => {
        var prefix = "-";
  
