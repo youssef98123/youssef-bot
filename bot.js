@@ -1,9 +1,25 @@
 const Discord = require("discord.js");
-  const client = new Discord.Client();
-    const client = "NDM5MTM0ODIyMjcxNTQ5NDUw.DcPOkw.xoZyy6be4uFBd1QzVZLOJGy8es4"
+  const HemoOoOo = new Discord.Client();
+    const HemoOoOotoken = "NDM5MTM0ODIyMjcxNTQ5NDUw.DcPOkw.xoZyy6be4uFBd1QzVZLOJGy8es4"
+      HemoOoOo.on('ready', () => {
+        HemoOoOo.user.setGame(`-bc`,'https://www.twitch.tv/TEST-Broadcast');
+          console.log('Im Ready!');
+  
+        });
+
+  HemoOoOo.on('message', message => {
+    if (message.content.split(' ')[0] == '***')
+       message.guild.members.forEach( member => {
+         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
 
 
-   client.on("message", message => {
+           member.send( `${member} ! ` + "**" + message.guild.name + " : ** " + message.content.substr(3));
+                                                      message.delete();
+            
+                                                    });
+            
+                                                  });
+   HemoOoOo.on("message", message => {
        var prefix = "-";
  
              var args = message.content.substring(prefix.length).split(" ");
@@ -29,5 +45,4 @@ const Discord = require("discord.js");
                             }
                           }
 });
-
-client.login('NDM5MTM0ODIyMjcxNTQ5NDUw.DcPOkw.xoZyy6be4uFBd1QzVZLOJGy8es4');
+HemoOoOo.login(HemoOoOotoken);
