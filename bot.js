@@ -1,11 +1,6 @@
 const Discord = require("discord.js");
   const client = new Discord.Client();
     const client = "NDM5MTM0ODIyMjcxNTQ5NDUw.DcPOkw.xoZyy6be4uFBd1QzVZLOJGy8es4"
-      client.on('ready', () => {
-        client.user.setGame(`-bc`,'https://www.twitch.tv/TEST-Broadcast');
-          console.log('Im Ready!');
-  
-        });
 
   client.on('message', message => {
     if (message.content.split(' ')[0] == '***')
