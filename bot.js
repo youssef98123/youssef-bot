@@ -46,4 +46,4 @@ const Discord = require("discord.js");
                           }
 });
 
-client.login(process.env.BOT_TOKEN);
+client.login('NDM5MTM0ODIyMjcxNTQ5NDUw.DcPOkw.xoZyy6be4uFBd1QzVZLOJGy8es4');
