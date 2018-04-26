@@ -1,34 +1,49 @@
 const Discord = require("discord.js");
-const client = new Discord.Client();
+  const client = new Discord.Client();
+    const client = "NDM5MTM0ODIyMjcxNTQ5NDUw.DcPOkw.xoZyy6be4uFBd1QzVZLOJGy8es4"
+      client.on('ready', () => {
+        client.user.setGame(`-bc`,'https://www.twitch.tv/TEST-Broadcast');
+          console.log('Im Ready!');
+  
+        });
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
-
-client.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('Pong!');
-  }
-});
-
-
-
+  client.on('message', message => {
+    if (message.content.split(' ')[0] == '***')
+       message.guild.members.forEach( member => {
+         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
 
 
-var prefix = "-";
+           member.send( `${member} ! ` + "**" + message.guild.name + " : ** " + message.content.substr(3));
+                                                      message.delete();
+            
+                                                    });
+            
+                                                  });
+   client.on("message", message => {
+       var prefix = "-";
+ 
+             var args = message.content.substring(prefix.length).split(" ");
+                if (message.content.startsWith(prefix + "b")) {
+                          if (!message.member.hasPermission("ADMINISTRATOR"))  return;
 
-client.on("message", message => {
+                          if (!args[1]) {
+                            
+                                 let embed3 = new Discord.RichEmbed()
+                                     .setDescription(":white_check_mark: | تم ارسال رسالة لا يوجد فيها شيء")
+                                       .setColor("#FF00FF")
+                                          message.channel.sendEmbed(embed3);
+                            
+                                        } else {
 
-            if (message.content.startsWith(prefix + "bc")) {
-                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-  let args = message.content.split(" ").slice(1);
-  var argresult = args.join(' '); 
-  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
- m.send(`${argresult}\n ${m}`);
-})
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
- message.delete(); 
-};     
+                            
+                                           let embed4 = new Discord.RichEmbed()
+                                                            .setDescription(':white_check_mark: | تم ارسال الرساله للجميع ..')
+                                                                .setColor("#99999")
+                               
+                                                                message.channel.sendEmbed(embed4);
+                                                      message.delete();
+                            }
+                          }
 });
 
 client.login(process.env.BOT_TOKEN);
