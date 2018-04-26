@@ -5,7 +5,8 @@ client.on('message', message => {
    let embed = new Discord.RichEmbed()
     let args = message.content.split(' ').slice(1).join(' ');
      if(!message.channel.guild) return;
-     if (message.content.startsWith(prefix + "bc")) {
+     var  prefix: "-",
+    if (message.content.startsWith(prefix + "bc")) {
       if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('*** You Dont Have Permission to do that ***');
          message.react("✔️")
           let embed = new Discord.RichEmbed()
