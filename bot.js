@@ -24,4 +24,4 @@ if(!message.channel.guild) return;
 });
 
 
-client.login("NDM5MTQwNjk1MDAxNzkyNTEy.DcX4AA.3KtKJFdnZReLtXZYOsQYhw9ZL_U")
+client.login("NDM5MTQwNjk1MDAxNzkyNTEy.DcX8kw.gnj85wCDVeh7TRPVz49Vnx-bPBE")
