@@ -2,30 +2,30 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('message', message => {
+    if (message.author.id === client.user.id) return;
+    if (message.guild) {
    let embed = new Discord.RichEmbed()
     let args = message.content.split(' ').slice(1).join(' ');
-     if(!message.channel.guild) return;
-     var  prefix: "-",
-    if (message.content.startsWith(prefix + "bc")) {
-      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('*** You Dont Have Permission to do that ***');
-         message.react("✔️")
-          let embed = new Discord.RichEmbed()
-          .setColor("#FF00FF")
-          .setThumbnail(message.author.avatarURL)   
-          .addField('Done By:', "<@" + message.author.id + ">")
-
-           message.channel.sendEmbed(embed);
-            message.guild.members.forEach(m => {
+if(message.content.split(' ')[0] == prefix + 'bc') {
+    if (!args[1]) {
+message.channel.send("**f!bc <message>**");
+return;
+}
+        message.guild.members.forEach(m => {
+   if(!message.member.hasPermission('ADMINISTRATOR')) return;
             var bc = new Discord.RichEmbed()
-          .addField('**❁Server name **', `*** ⇝ ${message.guild.name}***`)               
-          .addField(`***❁message***`, args)
-          .setColor('#B40486')
-          .addField('**❁Name of sender**', `*** ⇝ ${message.author.username}#${message.author.discriminator}***`)
-         m.send(``,{embed: bc});
+            .addField('» السيرفر :', `${message.guild.name}`)
+            .addField('» المرسل : ', `${message.author.username}#${message.author.discriminator}`)
+            .addField(' » الرسالة : ', args)
+            .setColor('#ff0000')
+            // m.send(`[${m}]`);
+            m.send(`${m}`,{embed: bc});
         });
-        
     }
-    
+    } else {
+        return;
+    }
 });
 
-client.login('NDM5MTM0ODIyMjcxNTQ5NDUw.DcPT_A.ODQyK4fMneCiIdiR6BkxdyRO8c0');
+
+client.login('NDM5MTM0ODIyMjcxNTQ5NDUw.DcX24w.CDcvLyTz93sZR2rYb9LCpVFtQDc');
